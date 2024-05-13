@@ -1,0 +1,11 @@
+master:
+  ip: "localhost"
+  port: 32770
+
+slaves:
+  # Slave 1
+  - ip: "localhost"
+    port: 32771
+  # Slave 2
+  - ip: "localhost"
+    port: 32772
