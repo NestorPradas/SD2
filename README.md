@@ -1,3 +1,10 @@
+# Description
+Simulation of small distributed system (centralized and decentralized). 
+- Execute test: run eval/eval.py
+- Execute Centralized server and client: run Centralized.py and CentralizedClient.py
+- Execute Decentralized server and client: run Decentralized.py and DecentralizedClient.py
+
+
 # Distributed storage systems and the CAP theorem
 
 ```
@@ -12,11 +19,23 @@ Project/
 ├── config_descentralized.yaml
 ├── centralized.py
 ├── decentralized.py
+│
 ├── eval/
 │   ├── test_centralized_system.py
 │   └── test_decentralized_system.py
 │
-└── ...
+├── Centralized/
+│   ├── Master.py
+│   └── Slave.py
+│
+├── CentralizedSaves/
+│   └── <slave_X_ip>-<slave_X_port>.txt
+│
+├── Decentralized/
+│   └── Node.py
+│
+└── DecentralizedSaves/
+    └── <node_X_ip>-<node_X_port>.txt
 ```
 
 ## Directory Structure Explanation
@@ -37,11 +56,9 @@ Project/
       port: <Port>
 
     slaves:
-      - id: <slave_1_ID>
-        ip: <slave_1_IP>
+      - ip: <slave_1_IP>
         port: <slave_1_Port>
-      - id: <slave_2_ID>
-        ip: <slave_2_IP>
+      - ip: <slave_2_IP>
         port: <slave_2_Port>
       ...
       ```
@@ -52,19 +69,23 @@ Project/
 
     ```
     nodes:
-      - id: <node_1_ID>
-        ip: <node_1_IP>
+      - ip: <node_1_IP>
         port: <node_1_Port>
-      - id: <node_2_ID>
-        ip: <node_2_IP>
+        weight: <node_1_Weight>
+      - ip: <node_2_IP>
         port: <node_2_Port>
+        weight: <node_2_Weight>
       ...
       ```
+
+- **Centralized**: Folder containing Master and Slave scripts for centralized system
+
+- **Dentralized**: Folder containing Node script for decentralized system.
+
+- **CentralizedSaves and DecentralizedSaves**: Folder containing backup files in case of total server failure.
+
 
 Each component of the project is organized into its respective directory, facilitating clear separation of concerns and ease of navigation. The `eval` directory specifically houses test scripts for evaluating the functionality and correctness of the implemented systems.
 
 > **Note:** Students are required to define the necessary stubs for implementing the Two Phase Commit (2PC) protocol and for node registration in the system. These stubs must be manually added to the store.proto file by the students as part of their implementation.
 
-Errores en centralized_system_tests.py
-- SlowdownRequest -> SlowDownRequest
-- delay -> seconds
